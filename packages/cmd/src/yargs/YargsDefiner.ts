@@ -13,13 +13,13 @@ import { Argv } from "yargs";
 import { inspect } from "util";
 import { Logger } from "../../../logger";
 import { ICommandDefinition } from "../../../cmd/src/doc/ICommandDefinition";
-import { YargsCommandCompleted } from "./AbstractCommandYargs";
 import { GroupCommandYargs } from "./GroupCommandYargs";
 import { CommandYargs } from "./CommandYargs";
 import { ICommandResponseParms } from "../../../cmd/src/doc/response/parms/ICommandResponseParms";
 import { IProfileManagerFactory } from "../../../profiles";
 import { ICommandProfileTypeConfiguration } from "../doc/profiles/definition/ICommandProfileTypeConfiguration";
 import { IHelpGeneratorFactory } from "../help/doc/IHelpGeneratorFactory";
+import YargsCommandCompleted from "./AbstractCommandYargs";
 
 /**
  * Imperative Command Definer - Defines the Imperative command objects to Yargs for processing.

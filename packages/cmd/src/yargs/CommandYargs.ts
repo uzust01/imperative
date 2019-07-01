@@ -13,7 +13,7 @@ import { Arguments, Argv, Options } from "yargs";
 import { isNullOrUndefined } from "util";
 import { Constants } from "../../../constants";
 import { IYargsResponse } from "./doc/IYargsResponse";
-import { AbstractCommandYargs, YargsCommandCompleted } from "./AbstractCommandYargs";
+import YargsCommandCompleted, { AbstractCommandYargs, } from "./AbstractCommandYargs";
 import { ICommandOptionDefinition } from "../../src/doc/option/ICommandOptionDefinition";
 import { ICommandDefinition } from "../doc/ICommandDefinition";
 import { CommandProcessor } from "../CommandProcessor";

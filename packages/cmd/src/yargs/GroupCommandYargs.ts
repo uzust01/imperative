@@ -10,7 +10,7 @@
 */
 
 import { Arguments, Argv } from "yargs";
-import { AbstractCommandYargs, YargsCommandCompleted } from "./AbstractCommandYargs";
+import YargsCommandCompleted, { AbstractCommandYargs } from "./AbstractCommandYargs";
 import { CommandYargs } from "./CommandYargs";
 
 /**

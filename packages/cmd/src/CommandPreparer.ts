@@ -418,6 +418,17 @@ export class CommandPreparer {
             type: "boolean"
         });
 
+        // all groups have --something-else
+        if(definition.type === "group") {
+            definition.options.push({
+                name: Constants.SOMETHING_ELSE,
+                aliases: [Constants.SOMETHING_ELSE_ALIAS],
+                group: Constants.SOMETHING_ELSE,
+                description: "Display help text",
+                type: "boolean"
+            });
+        }
+
         /**
          * Append any profile related options
          */
