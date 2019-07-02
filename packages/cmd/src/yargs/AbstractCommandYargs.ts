@@ -329,10 +329,10 @@ export abstract class AbstractCommandYargs {
         let pathToArr: string;
         let tempDesc: string;
         let tempOp: string;
+        let tempPre: string;
         let tempDescPath: string;
         let tempOpPath: string;
-        let flagDesc = false;
-        let flagOp = false;
+        let tempPrePath: string;
 
         if (!this.definition.examples) {
             this.definition[`examples`] = [];
@@ -349,16 +349,22 @@ export abstract class AbstractCommandYargs {
                 if (path.endsWith("description")) {
                     tempDescPath = path.substring(0, path.length - "description".length);
                     tempDesc= value;
-                    flagDesc = true;
-                }
-                if (path.endsWith("options")) {
+                } else if (path.endsWith("options")) {
                     tempOpPath = path.substring(0, path.length - "options".length);
                     tempOp = value;
-                    flagOp = true;
+                } else if (path.endsWith("prefix")) {
+                    tempPrePath = path.substring(0, path.length - "prefix".length);
+                    tempPre = value;
+                } else {
+                    tempPre = undefined;
                 }
 
-                if(flagDesc && flagOp && tempDescPath === tempOpPath ) {
-                    this.definition.examples.push({description: tempDesc, options: tempOp});
+                if(tempDescPath === tempOpPath ) {
+                    let commandExamples: ICommandExampleDefinition;
+                    !tempPre && (tempDescPath === tempPrePath) ?
+                        commandExamples = {description: tempDesc, options: tempOp}
+                        :commandExamples = {description: tempDesc, options: tempOp, prefix: tempPre};
+                    this.definition.examples.push(commandExamples);
 
                 }
             }
