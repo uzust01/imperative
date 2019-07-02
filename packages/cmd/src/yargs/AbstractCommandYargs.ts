@@ -340,10 +340,9 @@ export abstract class AbstractCommandYargs {
 
         lodashDeep.deepMapValues(this.definition.children, ((value: any, path: any) => {
             if(path.includes("examples.0.")) {
-                const tmp = path.split(".0.");
-                if (tmp[0].endsWith("examples")) {
-                    pathToArr = tmp[0];
-                }
+                const tmp = path.split("examples.0.");
+                pathToArr = `${tmp[0]}examples`;
+
             }
             if(path.includes(pathToArr)) {
                 if (path.endsWith("description")) {
