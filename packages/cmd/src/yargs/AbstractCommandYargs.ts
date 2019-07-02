@@ -360,8 +360,8 @@ export abstract class AbstractCommandYargs {
 
                 if(tempDescPath === tempOpPath ) {
                     let commandExamples: ICommandExampleDefinition;
-                    !tempPre && (tempDescPath === tempPrePath) ?
-                        commandExamples = {description: tempDesc, options: tempOp}
+                    tempPre && (tempDescPath === tempPrePath) ?
+                        commandExamples.prefix = tempPre
                         :commandExamples = {description: tempDesc, options: tempOp, prefix: tempPre};
                     this.definition.examples.push(commandExamples);
 
