@@ -10,7 +10,7 @@
 */
 
 import { Arguments, Argv } from "yargs";
-import * as lodashDeep from "lodash-deep";
+// import * as lodashDeep from "lodash-deep";
 import { Logger } from "../../../logger";
 import { ICommandDefinition } from "../doc/ICommandDefinition";
 import { CommandProcessor } from "../CommandProcessor";
@@ -26,6 +26,7 @@ import { IHelpGeneratorFactory } from "../help/doc/IHelpGeneratorFactory";
 import { CommandResponse } from "../response/CommandResponse";
 import { ICommandResponse } from "../../src/doc/response/response/ICommandResponse";
 import { ICommandExampleDefinition } from "../..";
+const lodashDeep = require("lodash-deep");
 
 /**
  * Callback that is invoked when a command defined to yargs completes execution.
