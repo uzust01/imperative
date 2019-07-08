@@ -10,6 +10,7 @@
 */
 
 import { Arguments, Argv } from "yargs";
+import * as lodashDeep from "lodash-deep";
 import { Logger } from "../../../logger";
 import { ICommandDefinition } from "../doc/ICommandDefinition";
 import { CommandProcessor } from "../CommandProcessor";
@@ -25,8 +26,6 @@ import { IHelpGeneratorFactory } from "../help/doc/IHelpGeneratorFactory";
 import { CommandResponse } from "../response/CommandResponse";
 import { ICommandResponse } from "../../src/doc/response/response/ICommandResponse";
 import { ICommandExampleDefinition } from "../..";
-// tslint:disable-next-line:no-implicit-dependencies
-const lodashDeep = require("lodash-deep");
 
 /**
  * Callback that is invoked when a command defined to yargs completes execution.
@@ -360,9 +359,9 @@ export abstract class AbstractCommandYargs {
 
                 if(tempDescPath === tempOpPath ) {
                     let commandExamples: ICommandExampleDefinition;
-                    tempPre && (tempDescPath === tempPrePath) ?
-                        commandExamples.prefix = tempPre
-                        :commandExamples = {description: tempDesc, options: tempOp, prefix: tempPre};
+                    (tempPre && (tempDescPath === tempPrePath)) ?
+                        this.definition.examples[this.definition.examples.length - 1].prefix = tempPre
+                        :commandExamples = {description: tempDesc, options: tempOp};
                     this.definition.examples.push(commandExamples);
 
                 }
