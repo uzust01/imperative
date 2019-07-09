@@ -421,10 +421,10 @@ export class CommandPreparer {
         // all groups have --something-else
         if(definition.type === "group") {
             definition.options.push({
-                name: Constants.SOMETHING_ELSE,
-                aliases: [Constants.SOMETHING_ELSE_ALIAS],
-                group: Constants.SOMETHING_ELSE,
-                description: "Display help text",
+                name: Constants.HELP_EXAMPLES,
+                aliases: [Constants.HELP_EXAMPLES_ALIAS],
+                group: Constants.HELP_EXAMPLES,
+                description: "Display examples for all the commands in a the group",
                 type: "boolean"
             });
         }

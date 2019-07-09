@@ -277,7 +277,7 @@ export abstract class AbstractCommandYargs {
          * object is recreated/changed based on the currently specified CLI options
          */
         let tempDefinition: ICommandDefinition;
-        if (args[Constants.SOMETHING_ELSE]) {
+        if (args[Constants.HELP_EXAMPLES]) {
             tempDefinition = this.getDepthExamples();
         }
 
